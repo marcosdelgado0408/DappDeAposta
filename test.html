@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>corrida arriaciones</title>
+<script >
+<!--
+function reset1(){
+clearTimeout(my_time);
+document.getElementById('i1').style.left= "300px";
+document.getElementById('i2').style.left= "300px";
+}
+
+function disp(){
+
+var step1=1; // Change this step value
+var x=document.getElementById('i1').offsetLeft;
+if(x < 1300){x= x +step1;
+document.getElementById('i1').style.left= x + "px";//horizontal move
+}
+
+var step2=5;
+var x2=document.getElementById('i2').offsetLeft;
+if(x2 < 1300){x2= x2 +step2;
+document.getElementById('i2').style.left= x2 + "px";//horizontal move
+}
+}
+
+function timer(){
+disp();
+my_time=setTimeout('timer()',1);
+
+}
+//-->
+</script>
+</head>
+<body >
+
+	<img src=capitaotpose.png id='i1' 
+		style="left: 300; top: 100;
+			max-width:150px;
+		    max-height:100px;
+		    width: auto;
+		    height: auto;
+		    position: absolute;">
+
+
+	<img src=mauricetpose.png id='i2' 
+		style="left: 300; top: 200;
+		  	max-width:150px;
+		    max-height:100px;
+		    width: auto;
+		    height: auto;
+		    position: absolute;">
+
+	<img src=joqueiMerdaMarcos.jpeg id='i3' 
+		style="left: 300; top: 300;
+		  	max-width:150px;
+		    max-height:100px;
+		    width: auto;
+		    height: auto;
+		    position: absolute;">
+	<img src=LinhaChegadaVertical.png id='chegada' 
+		style="left: 1225; top: 100;
+		  	max-width:300px;
+		    max-height:2000px;
+		    width: auto;
+		    height: auto;
+		    position: absolute;
+		    z-index: -1;">
+
+<br><br><br><br>
+<input type=button onClick=timer() value='Start'>
+<input type=button onClick=reset1() value='Reset'>
+<div id='msg'></div>
+
+</body>
+</html>
