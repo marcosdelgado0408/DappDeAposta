@@ -54,7 +54,7 @@ function disp(){
 	if(x3 >= 1750){console.log("Capitao 3 ganhou")};
 	if(x4 >= 1750){console.log("Capitao 4 ganhou")};
 	if(x5 >= 1750){console.log("Capitao 5 ganhou")};
-	
+	 	
 
 }
 
