@@ -3,89 +3,34 @@
 		<title>corrida arriaciones</title>
 
 		<script src = "scrips.js"></script>
+		<link rel="stylesheet" href="styles.css">
 
 
 	</head>
 
-	<body style="background-color:grey;">
-
-		
-			
-			<img src="grama_hd.jpg" id='grama_hd'
-				style="
-					left: 50px;
-					top: 110px;
-					position: absolute;
-					width: 1800;
-					height: 600;
-					z-index: -1;
-					border: 5px solid;">
-
-
-
-			<img src=astronauta.gif id='i1' 
-			style="left: 30; top: 110;
-				max-width:150px;
-				max-height:100px;
-				width: auto;
-				height: auto;
-				position: absolute;">
-			
-			<img src=horse.gif id='i2' 
-			style="left: 30; top: 240;
-				max-width:150px;
-				max-height:100px;
-				width: auto;
-				height: auto;
-				position: absolute;">
-
-			<img src=robothorse.gif id='i3' 
-			style="left: 30; top: 360;
-				max-width:150px;
-				max-height:100px;
-				width: auto;
-				height: auto;
-				position: absolute;
-				transform: scaleX(-1);
-
-				">
-
-
-			<img src=capitaotpose.png id='i4' 
-			style="left: 30; top: 490;
-				max-width:150px;
-				max-height:100px;
-				width: auto;
-				height: auto;
-				position: absolute;">
-
-
-			<img src=capitaotpose.png id='i5' 
-			style="left: 30; top: 620;
-				max-width:150px;
-				max-height:100px;
-				width: auto;
-				height: auto;
-				position: absolute;">
-
-
-
-
-			<img src=LinhaChegadaVertical.png id='chegada' 
-			style="left: 1670; top: 105;
-				max-width:300px;
-				max-height:2000px;
-				width: auto;
-				height: 620;
-				position: absolute;
-				z-index: -1;">
-			
 	
+	<body onload="timer()" style="background-color:grey;">
+		
+	
+			
+			
+			<img src="grama_hd.jpg" id='grama_hd'>
+			<img src=LinhaChegadaVertical.png id='chegada' >
+
+
+			<img src=astronauta.gif id='i1' class="corredor">			
+			<img src=horse.gif id='i2' class="corredor" >
+			<img src=robothorse.gif id='i3' class="corredor" >
+			<img src=capitaotpose.png id='i4' class="corredor" >
+			<img src=capitaotpose.png id='i5' class="corredor" >
+	
+			
+			
 
 
 		<br><br><br><br>
-		<input type=button onClick=timer() value='Start'>
-		<input type=button onClick=reset1() value='Reset'>
+		<!-- <input type=button onClick=timer() value='Start'>
+		<input type=button onClick=reset1() value='Reset'> -->
 		<div id='msg'></div>
 
 

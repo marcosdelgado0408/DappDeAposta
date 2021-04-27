@@ -1,3 +1,6 @@
+winner = null;
+
+
 
 function reset1(){
 	clearTimeout(my_time);
@@ -20,27 +23,49 @@ function move(id){
 		document.getElementById('i' + id).style.left= x + "px";//horizontal move
 	}
 
-	if(x >= 1750){console.log("Capitao "+id+" ganhou")};
-	
+	if(x >= 1750){
+		// console.log("Capitao "+id+" ganhou");
+		winner = id;
+	}
 }
+
+
+function moveFaster(id){
+	var step = Math.floor(Math.random() * 5.5); // Change this step value
+	var x = document.getElementById('i' + id).offsetLeft;
+
+	if(x < 1750){
+		x += step;
+		document.getElementById('i' + id).style.left= x + "px";//horizontal move
+	}
+
+	if(x >= 1750){
+		// console.log("Capitao "+id+" ganhou");
+		winner = id;
+	}
+
+}
+
+
 
 
 function disp(){
 
-	move('1');
+	moveFaster('1');
 	move('2');
 	move('3');
 	move('4');
 	move('5');
 
-
+	console.log(winner)
 
 }
 
 function timer(){
 	disp();
-	my_time=setTimeout('timer()',15);
-
+	my_time = setTimeout('timer()',15);
 
 }
 
+
+// window.onload = timer();

@@ -1,0 +1,53 @@
+#grama_hd{
+    left: 50px;
+    top: 110px;
+    position: absolute;
+    width: 1800;
+    height: 600;
+    z-index: -1;
+    border: 5px solid;
+}
+
+
+.corredor{
+    max-width:150px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+    position: absolute;
+}
+
+#i1{
+    left: 30; top: 110;
+   
+}
+
+#i2{
+    left: 30; top: 240;
+    
+}
+
+#i3{
+    left: 30; top: 360;
+    transform: scaleX(-1);
+}
+
+
+#i4{
+    left: 30; top: 490;
+}
+
+#i5{
+    left: 30; top: 620;
+}
+
+#chegada{
+    left: 1670; top: 105;
+    max-width:300px;
+    max-height:2000px;
+    width: auto;
+    height: 620;
+    position: absolute;
+    z-index: -1;    
+}
+
