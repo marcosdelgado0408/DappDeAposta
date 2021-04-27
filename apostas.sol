@@ -24,10 +24,10 @@ contract Bet is owner{
         uint horseNumber;
     }
     
-    uint[] horses; /*cada cavalo tera um numero*/
+    uint[] horses; /*cada cavalo tera um numero*/ /*MUITO ARRIACAO ISSO NAO PRECISA*/
     mapping(address => BettedHorse) bets;
-    
-   
+    mapping(uint => address[]) horseNumbers;
+    address[] addresses;
     
     constructor() public{
         horses.push(1);
@@ -49,6 +49,10 @@ contract Bet is owner{
         
         bets[msg.sender] = bettedHorse;
         
+        
+        horseNumbers[horseNumber].push(msg.sender);
+        addresses.push(msg.sender);
+        
     }
     
     
@@ -57,6 +61,24 @@ contract Bet is owner{
         return random;
     }
     
+    function withDraw() external{
+        uint winner = setWinner();
+        
+        for(uint i=0;i<addresses.length;i++){
+            address addr = addresses[i];
+            uint betterAmount = bets[addr].amount;
+            
+            address[] memory enderecos = horseNumbers[winner];
+           
+            for(uint j=0;j<enderecos.length;j++){
+                address payable fodase = enderecos[i];
+                enderecos[i].transfer(betterAmount);
+            }
+            
+            
+        }
+        
+    }
     
     
     

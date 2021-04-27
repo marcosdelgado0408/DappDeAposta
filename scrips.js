@@ -8,7 +8,7 @@ function reset1(){
 function disp(){
 
 	var step_capitao=1; // Change this step value
-	var x=document.getElementById('i1').offsetLeft;
+	var x = document.getElementById('i1').offsetLeft;
 	if(x < 1300){
 		x= x + step_capitao;
 		document.getElementById('i1').style.left= x + "px";//horizontal move
