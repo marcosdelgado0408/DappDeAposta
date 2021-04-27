@@ -10,51 +10,30 @@ function reset1(){
 	
 }
 
+
+function move(id){
+	var step = Math.floor(Math.random() * 5); // Change this step value
+	var x = document.getElementById('i' + id).offsetLeft;
+
+	if(x < 1750){
+		x += step;
+		document.getElementById('i' + id).style.left= x + "px";//horizontal move
+	}
+
+	if(x >= 1750){console.log("Capitao "+id+" ganhou")};
+	
+}
+
+
 function disp(){
 
-	var step_capitao1= Math.floor(Math.random() * 5); // Change this step value
-	var x = document.getElementById('i1').offsetLeft;
-	if(x < 1750){
-		x= x + step_capitao1;
-		document.getElementById('i1').style.left= x + "px";//horizontal move
-	}
-
-	var step_capitao2= Math.floor(Math.random() * 5);
-	var x2= document.getElementById('i2').offsetLeft;
-	if(x2 < 1750){
-		x2= x2 + step_capitao2;
-		document.getElementById('i2').style.left= x2 + "px";//horizontal move
-	}
-
-	var step_capitao3= Math.floor(Math.random() * 5);
-	var x3 = document.getElementById('i3').offsetLeft;
-	if(x3 < 1750){
-		x3 = x3 + step_capitao3;
-		document.getElementById('i3').style.left = x3 + "px";
-	}
+	move('1');
+	move('2');
+	move('3');
+	move('4');
+	move('5');
 
 
-	var step_capitao4= Math.floor(Math.random() * 5);
-	var x4 = document.getElementById('i4').offsetLeft;
-	if(x4 < 1750){
-		x4 = x4 + step_capitao4;
-		document.getElementById('i4').style.left = x4 + "px";
-	}
-
-	var step_capitao5= Math.floor(Math.random() * 5);
-	var x5 = document.getElementById('i5').offsetLeft;
-	if(x5 < 1750){
-		x5 = x5 + step_capitao4;
-		document.getElementById('i5').style.left = x4 + "px";
-	}
-
-	
-	if(x >= 1750){console.log("Capitao 1 ganhou")};
-	if(x2 >= 1750){console.log("Capitao 2 ganhou")};
-	if(x3 >= 1750){console.log("Capitao 3 ganhou")};
-	if(x4 >= 1750){console.log("Capitao 4 ganhou")};
-	if(x5 >= 1750){console.log("Capitao 5 ganhou")};
-	 	
 
 }
 

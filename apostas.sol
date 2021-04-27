@@ -39,14 +39,14 @@ contract Bet is owner{
 
     function betOnHorse(uint horseNumber) public payable{
         
-        require(horseNumber > horses.length); // nao e possivel apostar em cavalos que nao estajam disponiveis
+        require(horseNumber < horses.length); // nao e possivel apostar em cavalos que nao estajam disponiveis
         
-        BettedHorse memory bettedHorse;
+        BettedHorse memory cavaloApostado;
         
-        bettedHorse.amount = msg.value;
-        bettedHorse.horseNumber = horseNumber;
+        cavaloApostado.amount = msg.value;
+        cavaloApostado.horseNumber = horseNumber;
         
-        bets[msg.sender] = bettedHorse;
+        bets[msg.sender] = cavaloApostado;
         
         
         // horseNumbers[horseNumber].push(msg.sender);
@@ -62,9 +62,10 @@ contract Bet is owner{
     
     function withDraw() external{
         uint winner = setWinner();
+        address addr;
         
         for(uint i=0;i<addresses.length;i++){
-            address addr = addresses[i];
+            addr = addresses[i];
             
             if(bets[addr].horseNumber == winner){
                 address payable payableAddr = payable(addr);
