@@ -1,3 +1,4 @@
+
 function reset1(){
 	clearTimeout(my_time);
 	document.getElementById('i1').style.left = "30px";
@@ -47,10 +48,20 @@ function disp(){
 		document.getElementById('i5').style.left = x4 + "px";
 	}
 
+	
+	if(x >= 1750){console.log("Capitao 1 ganhou")};
+	if(x2 >= 1750){console.log("Capitao 2 ganhou")};
+	if(x3 >= 1750){console.log("Capitao 3 ganhou")};
+	if(x4 >= 1750){console.log("Capitao 4 ganhou")};
+	if(x5 >= 1750){console.log("Capitao 5 ganhou")};
+	
 
 }
 
 function timer(){
 	disp();
 	my_time=setTimeout('timer()',15);
+
+
 }
+

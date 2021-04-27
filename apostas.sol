@@ -1,16 +1,16 @@
 
-pragma  solidity  ^0.5.0;
+pragma  solidity  ^0.7.0;
 
 contract  owner {
 
     address owner;
 
-    constructor() public {
+    constructor() {
         owner =  msg.sender;
     }
 
     modifier onlyOwner {
-        require(msg.sender == owner, "Somente o dono do contrato pode invocar essa função!");
+        require(msg.sender == owner, "Somente o dono do contrato pode invocar essa funcao!");
         _;
     }
 }
@@ -26,9 +26,8 @@ contract Bet is owner{
     
     uint[] horses; /*cada cavalo tera um numero*/ /*MUITO ARRIACAO ISSO NAO PRECISA*/
     mapping(address => BettedHorse) bets;
-    mapping(uint => address[]) horseNumbers;
     address[] addresses;
-    
+
     constructor() public{
         horses.push(1);
         horses.push(2);
@@ -50,7 +49,7 @@ contract Bet is owner{
         bets[msg.sender] = bettedHorse;
         
         
-        horseNumbers[horseNumber].push(msg.sender);
+        // horseNumbers[horseNumber].push(msg.sender);
         addresses.push(msg.sender);
         
     }
@@ -66,16 +65,12 @@ contract Bet is owner{
         
         for(uint i=0;i<addresses.length;i++){
             address addr = addresses[i];
-            uint betterAmount = bets[addr].amount;
             
-            address[] memory enderecos = horseNumbers[winner];
-           
-            for(uint j=0;j<enderecos.length;j++){
-                address payable fodase = enderecos[i];
-                enderecos[i].transfer(betterAmount);
+            if(bets[addr].horseNumber == winner){
+                address payable payableAddr = payable(addr);
+                payableAddr.transfer(bets[addr].amount);
             }
-            
-            
+           
         }
         
     }
