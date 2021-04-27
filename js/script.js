@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0xf85cbBFec6506bA065129FB681684614b02193A8";
+var contractAddress = "0xDefA8451F1AE30049a92236b2AaEff263051b122";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -56,6 +56,29 @@ const DApp = {
   render: async function () {
     inicializaInterface();
   },
-
-
 };
+
+
+// *** MÉTODOS (de consulta - view) DO CONTRATO ** //
+
+function verCampeao() {
+  return DApp.contracts.Contrato.methods.viewWinner().call({ from: DApp.account });
+}
+
+// *** MÉTODOS (de escrita) DO CONTRATO ** //
+
+
+
+// *** ATUALIZAÇÃO DO HTML *** //
+
+function inicializaInterface() {
+    atualizaInterface();
+}
+
+function atualizaInterface() {
+  verCampeao().then((result) => {
+    document.getElementById("campeao-atual").innerHTML = result;
+  });
+
+  document.getElementById("endereco").innerHTML = DApp.account;
+}
