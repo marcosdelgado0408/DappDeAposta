@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x5F408b84B13F470C689311d130396E1dd6Db16B4";
+var contractAddress = "0xf85cbBFec6506bA065129FB681684614b02193A8";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -26,12 +26,14 @@ const DApp = {
         });
         DApp.account = accounts[0];
         window.ethereum.on('accountsChanged', DApp.updateAccount); // Atualiza se o usuário trcar de conta no Metamaslk
-      } catch (error) {
+      } 
+      catch (error) {
         console.error("Usuário negou acesso ao web3!");
         return;
       }
       DApp.web3 = new Web3(window.ethereum);
-    } else {
+    } 
+    else {
       console.error("Instalar MetaMask!");
       return;
     }
@@ -54,4 +56,6 @@ const DApp = {
   render: async function () {
     inicializaInterface();
   },
+
+
 };
