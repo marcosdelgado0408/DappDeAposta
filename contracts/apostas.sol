@@ -77,7 +77,9 @@ contract Bet{
         
     }
     
-    
+    function isOwner() public view returns (bool){
+    	return msg.sender == owner;
+    }
     
     
 }

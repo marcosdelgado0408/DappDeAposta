@@ -1,5 +1,3 @@
-winner = null;
-
 
 
 function reset1(){
@@ -10,7 +8,6 @@ function reset1(){
 	document.getElementById('i4').style.left = "30px";
 	document.getElementById('i5').style.left = "30px";
 
-	
 }
 
 
@@ -39,10 +36,10 @@ function moveFaster(id){
 		document.getElementById('i' + id).style.left= x + "px";//horizontal move
 	}
 
-	if(x >= 1750){
-		// console.log("Capitao "+id+" ganhou");
-		winner = id;
-	}
+	// if(x >= 1750){
+	// 	// console.log("Capitao "+id+" ganhou");
+	// 	winner = id;
+	// }
 
 }
 
@@ -50,21 +47,20 @@ function moveFaster(id){
 
 
 function disp(){
-
+	
+	console.log(verCampeao())
+	
 	moveFaster('1');
 	move('2');
 	move('3');
 	move('4');
 	move('5');
 
-	// console.log(winner)
-
 }
 
 function timer(){
 	disp();
 	my_time = setTimeout('timer()',15);
-
 }
 
 function getters(){

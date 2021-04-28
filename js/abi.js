@@ -14,13 +14,6 @@ var abi = [
 	},
 	{
 		"inputs": [],
-		"name": "setWinner",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -45,9 +38,29 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "setWinner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "withDraw",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "isOwner",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{

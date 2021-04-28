@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0xc64d670037e280AC7eC8edA531f058Cc5A29f50A";
+var contractAddress = "0x9896751E2812f679EE75643D5f1213e1a9AEaba1";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -65,6 +65,13 @@ function verCampeao() {
   return DApp.contracts.Contrato.methods.viewWinner().call({ from: DApp.account });
 }
 
+
+function ehdono(){
+  return DApp.contracts.Contrato.methods.isOwner().call({ from: DApp.account });
+}
+
+
+
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
 
 
@@ -83,16 +90,28 @@ function betOnHorse() { //function betOnHorse(uint horseNumber) public payable
 function inicializaInterface() {
     document.getElementById("apostar").onclick = betOnHorse;
 
-
-
-
     atualizaInterface();
 }
 
 function atualizaInterface() {
+ 
   verCampeao().then((result) => {
     document.getElementById("campeao-atual").innerHTML = result;
   });
 
   document.getElementById("endereco").innerHTML = DApp.account;
+
+
+  document.getElementById("startButton").style.display = "none";
+  document.getElementById("resetButton").style.display = "none";
+  ehdono().then((result) => {
+  
+    if(result){
+      document.getElementById("startButton").style.display = "block";
+      document.getElementById("resetButton").style.display = "block";
+    }
+  
+  });
+
+
 }
