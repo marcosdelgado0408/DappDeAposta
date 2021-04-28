@@ -27,12 +27,12 @@
 }
 
 #chegada{
-    left: 1300; top: 300;
+    /*left: 1300; top: 300;*/
     max-width:200px;
     width: auto;
     height: 600;
-    position: absolute;
-        
+    float:right;
+    
 }
 
 ol li{
