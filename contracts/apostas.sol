@@ -15,7 +15,7 @@ contract Bet{
     uint horseQuantity; // quantidade de cavalos
     
     mapping(address => BettedHorse) bets;
-    address[] addresses;
+    address[] players;
 
     constructor(){
         owner = msg.sender;
@@ -29,25 +29,29 @@ contract Bet{
     
     event mostrarAposta(uint amount, uint horseNumber);
     
-    
+    function checkPlayerExists(address player) public view returns(bool){
+        for(uint i=0; i < players.length; i++){
+            if(players[i] == player){
+                return true;
+            }
+        }
+        return false;
+    }
 
     function betOnHorse(uint horseNumber) public payable{
+        
+        require(!checkPlayerExists(msg.sender)); // so é possivel 1 aposta por endereço
         
         require(horseNumber < horseQuantity); // nao e possivel apostar em cavalos que nao estajam disponiveis
         
         require(msg.value > 0); // nao e possivel apostar sem dinheiro
         
-        BettedHorse memory cavaloApostado;
+        bets[msg.sender].amount = msg.value;
+        bets[msg.sender].horseNumber = horseNumber;
         
-        cavaloApostado.amount = msg.value;
-        cavaloApostado.horseNumber = horseNumber;
-        
-        bets[msg.sender] = cavaloApostado;
-        
-        addresses.push(msg.sender);
+        players.push(msg.sender);
         
         emit mostrarAposta(msg.value, horseNumber);
-        
     }
     
     
@@ -60,26 +64,30 @@ contract Bet{
         return winner;
     }
     
-    
-    
     function withDraw() external onlyOwner{
         address addr;
         
-        for(uint i=0;i<addresses.length;i++){
-            addr = addresses[i];
+        for(uint i=0;i<players.length;i++){
+            addr = players[i];
             
             if(bets[addr].horseNumber == winner){
                 address payable payableAddr = payable(addr);
                 payableAddr.transfer(bets[addr].amount);
             }
-           
+            delete bets[addr];
         }
-        
+        winner = 0;
+        delete players;
     }
     
     function isOwner() public view returns (bool){
     	return msg.sender == owner;
     }
     
-    
+    function seeMyBetAmount() public view returns(uint){
+        return bets[msg.sender].amount;
+    }
+    function seeMyBetHorse() public view returns(uint){
+        return bets[msg.sender].horseNumber;
+    }
 }
