@@ -52,7 +52,7 @@ contract Bet{
     
     
     function setWinner() public onlyOwner{
-        winner = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % horseQuantity;
+        winner = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % horseQuantity + 1;
     }
     
     
