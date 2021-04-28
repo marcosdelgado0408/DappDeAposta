@@ -19,6 +19,7 @@
     height: auto;
     position:absolute;
     display: table-row;
+    z-index:+1;
 }
 
 #i1{
