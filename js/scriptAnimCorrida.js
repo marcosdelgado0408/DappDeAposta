@@ -44,31 +44,78 @@ function moveFaster(id){
 }
 
 
-
-
-function disp(){
-	
-	console.log(verCampeao())
-	
+function moveFaster1(){
 	moveFaster('1');
 	move('2');
 	move('3');
 	move('4');
 	move('5');
-
 }
+function moveFaster2(){
+	move('1');
+	moveFaster('2');
+	move('3');
+	move('4');
+	move('5');
+}
+function moveFaster3(){
+	move('1');
+	move('2');
+	moveFaster('3');
+	move('4');
+	move('5');
+}
+function moveFaster4(){
+	move('1');
+	move('2');
+	move('3');
+	moveFaster('4');
+	move('5');
+}
+function moveFaster5(){
+	move('1');
+	move('2');
+	move('3');
+	move('4');
+	moveFaster('5');
+}
+
+
 
 function timer(){
-	disp();
+	
+	verCampeao().then((result) => {
+		switch (result) {
+	
+			case "1":
+				moveFaster1();
+			break;
+			
+			case "2":
+				moveFaster2();
+			break;
+			
+			case "3":
+				moveFaster3();
+			break;
+	
+			case "4":
+				moveFaster4();
+			break;
+	
+			case "5":
+				moveFaster5();
+			break;
+		
+			default:
+				break;
+		}
+	
+	});	
+	
 	my_time = setTimeout('timer()',15);
-}
 
-function getters(){
-	console.log(document.getElementById("NumCavalo").value);
-	console.log(document.getElementById("amount").value)
 }
 
 
 
-
-// window.onload = timer();
