@@ -1,7 +1,8 @@
-
+var over = false;
 
 function reset1(){
 	clearTimeout(my_time);
+	over = false;
 	document.getElementById('i1').style.left = "30px";
 	document.getElementById('i2').style.left = "30px";
 	document.getElementById('i3').style.left = "30px";
@@ -15,14 +16,11 @@ function move(id){
 	var step = Math.floor(Math.random() * 5); // Change this step value
 	var x = document.getElementById('i' + id).offsetLeft;
 
-	if(x < 1750){
-		x += step;
-		document.getElementById('i' + id).style.left= x + "px";//horizontal move
-	}
-
-	if(x >= 1750){
-		// console.log("Capitao "+id+" ganhou");
-		winner = id;
+	if(!over){ 
+		if(x < 1350){
+			x += step;
+			document.getElementById('i' + id).style.left= x + "px";//horizontal move
+		}
 	}
 }
 
@@ -31,9 +29,12 @@ function moveFaster(id){
 	var step = Math.floor(Math.random() * 5.5); // Change this step value
 	var x = document.getElementById('i' + id).offsetLeft;
 
-	if(x < 1750){
+	if(x < 1350){
 		x += step;
 		document.getElementById('i' + id).style.left= x + "px";//horizontal move
+	}
+	else{
+		over = true;
 	}
 
 	// if(x >= 1750){
@@ -83,10 +84,9 @@ function moveFaster5(){
 
 
 function timer(){
-	
 	verCampeao().then((result) => {
 		switch (result) {
-	
+			
 			case "1":
 				moveFaster1();
 			break;

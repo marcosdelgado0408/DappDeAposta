@@ -1,4 +1,4 @@
-#grama_hd{
+/*#grama_hd{
     left: 50px;
     top: 500px;
     position: absolute;
@@ -6,48 +6,57 @@
     height: 600;
     z-index: -1;
     border: 5px solid;
+}*/
+#pista{
+    border: 5px solid;
+    height: 600;
 }
-
 
 .corredor{
     max-width:150px;
     max-height:100px;
     width: auto;
     height: auto;
-    position: absolute;
+    position:absolute;
+    display: table-row;
 }
 
 #i1{
-    left: 30; top: 500;
+    left: 30; /*top: 500*/;
    
 }
 
 #i2{
-    left: 30; top: 630;
+    left: 30; /*top: 630*/;
     
 }
 
 #i3{
-    left: 30; top: 750;
+    left: 30; /*top: 750*/;
     transform: scaleX(-1);
 }
 
 
 #i4{
-    left: 30; top: 880;
+    left: 30; /*top: 880*/;
 }
 
 #i5{
-    left: 30; top: 1010;
+    left: 30; /*top: 1010*/;
 }
 
 #chegada{
-    left: 1670; top: 495;
-    max-width:300px;
-    max-height:2000px;
+    left: 1300; top: 5;
+    max-width:200px;
+    max-height:600px;
     width: auto;
-    height: 620;
+    height: 590;
     position: absolute;
-    z-index: -1;    
+        
+}
+
+ol li{
+    height: 120px;
+    color: white;
 }
 
