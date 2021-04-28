@@ -2,35 +2,29 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Aposta corrida</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/styles.css"> 
 	</head>
 
 
 	
-	<body style="background-color:grey;">
+	<body class="bg-light">
 		
 		<h1 class="rey"> Apostas de cavalo</h1>
-		<br><br>
-		<h3> Faça sua aposta aqui</h3>
-			
-			
-
-		<label>Numero do cavalo:</label>
-		<input  type="text" id="NumCavalo" size="4" placeholder="Numero"/>
-			
-
-		<br><br>
-		<label>Quantia a ser apostada:</label>
-		<input  type="text" id="amount" size="9" placeholder="Amount(wei)"/>
-		<br><br>
-		<button type="button" id="apostar" >
-                  Enviar
-        </button>	
-
-
-		
-		<br><br>
+		<br>
 		<small class="text" id="endereco">-</small>
+		<div class="input-group">
+		<select id="NumCavalo" placeholder="Numero do cavalo">
+				<option value="" disabled selected>Escolha um cavalo</option>
+				<option value=1>1: Neil Armstrong</option>
+    			<option value=2>2: Spirit, o corcel indomável</option>
+    			<option value=3>3: Rocket, o cavalo máquina</option>
+				<option value=4>4: Capitão 1, o destruidor de mundos</option>
+				<option value=5>5: Capitão 2, o pinguim</option>
+		</select>
+		<input  type="text" id="amount" size="9" placeholder="Valor(wei)" required/>
+		<button type="button" id="apostar" >Apostar</button>
+		</div>
 		
 		<span id="campeao-atual" class="text"></span>
 
