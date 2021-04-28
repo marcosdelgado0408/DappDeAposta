@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
 //var contractAddress = "0x619A36d557457eD72a22415334b4a725492866Ae";
-var contractAddress = "0x2928db9b62cd6041757ef51636ae7a47b9addd87";
+var contractAddress = "0x0ae08564D22cA099210d9783B8Ee128ee575a88a";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -70,7 +70,6 @@ function verCampeao() {
 function ehdono(){
   return DApp.contracts.Contrato.methods.isOwner().call({ from: DApp.account });
 }
-
 
 
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
