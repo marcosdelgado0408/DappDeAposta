@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x9896751E2812f679EE75643D5f1213e1a9AEaba1";
+var contractAddress = "0x619A36d557457eD72a22415334b4a725492866Ae";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -81,7 +81,10 @@ function betOnHorse() { //function betOnHorse(uint horseNumber) public payable
   return DApp.contracts.Contrato.methods.betOnHorse(horseNumber).send({ from: DApp.account, value: amount }).then(atualizaInterface);;
 }
 
+function setWinner(){
+  return DApp.contracts.Contrato.methods.setWinner().send({from: DApp.account}).then(atualizaInterface);;
 
+}
 
 
 
@@ -89,6 +92,8 @@ function betOnHorse() { //function betOnHorse(uint horseNumber) public payable
 
 function inicializaInterface() {
     document.getElementById("apostar").onclick = betOnHorse;
+    document.getElementById("setWinner").onclick = setWinner;
+
 
     atualizaInterface();
 }
@@ -104,11 +109,14 @@ function atualizaInterface() {
 
   document.getElementById("startButton").style.display = "none";
   document.getElementById("resetButton").style.display = "none";
+  document.getElementById("setWinner").style.display = "none";
   ehdono().then((result) => {
   
     if(result){
       document.getElementById("startButton").style.display = "block";
       document.getElementById("resetButton").style.display = "block";
+      document.getElementById("setWinner").style.display = "block";
+
     }
   
   });

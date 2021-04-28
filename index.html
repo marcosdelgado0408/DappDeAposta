@@ -23,7 +23,7 @@
 		<label>Quantia a ser apostada:</label>
 		<input  type="text" id="amount" size="9" placeholder="Amount(wei)"/>
 		<br><br>
-		<button type="button" id="apostar" onClick = "getters()">
+		<button type="button" id="apostar" >
                   Enviar
         </button>	
 
@@ -36,10 +36,13 @@
 
 
 
-		<br><br><br><br><br><br>
+		<br><br><br><br>
+		<input type=button id="setWinner" value='SetWinner'> 
 
-		<input type=button id="startButton" onClick=timer() value='Start'>
-		<input type=button id="resetButton" onClick=reset1() value='Reset'>
+		
+		<br>
+		<input type=button id="startButton" onclick= timer() value='Start'> 
+		<input type=button id="resetButton" onClick= reset1() value='Reset'>
 
 		<h1> Começando em 3,2,1 ......</h1>
 
