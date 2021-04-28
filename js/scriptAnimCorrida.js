@@ -1,4 +1,6 @@
 var over = false;
+var chegada = 1750;
+
 
 function reset1(){
 	clearTimeout(my_time);
@@ -17,7 +19,7 @@ function move(id){
 	var x = document.getElementById('i' + id).offsetLeft;
 
 	if(!over){ 
-		if(x < 1350){
+		if(x < chegada){
 			x += step;
 			document.getElementById('i' + id).style.left= x + "px";//horizontal move
 		}
@@ -29,7 +31,7 @@ function moveFaster(id){
 	var step = Math.floor(Math.random() * 5.5); // Change this step value
 	var x = document.getElementById('i' + id).offsetLeft;
 
-	if(x < 1350){
+	if(x < chegada){
 		x += step;
 		document.getElementById('i' + id).style.left= x + "px";//horizontal move
 	}
@@ -37,10 +39,6 @@ function moveFaster(id){
 		over = true;
 	}
 
-	// if(x >= 1750){
-	// 	// console.log("Capitao "+id+" ganhou");
-	// 	winner = id;
-	// }
 
 }
 

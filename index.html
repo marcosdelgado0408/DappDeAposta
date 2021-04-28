@@ -8,13 +8,13 @@
 
 
 	
-	<body class="bg-light">
+	<body class="bg-secondary">
 		
 		<h1 class="rey"> Apostas de cavalo</h1>
 		<br>
 		<small class="text" id="endereco">-</small>
 		<div class="input-group col-md-4">
-			<select id="NumCavalo" placeholder="Numero do cavalo">
+			<select id="NumCavalo">
 					<option value="" disabled selected>Escolha um cavalo</option>
 					<option value=1>1: Neil Armstrong</option>
 					<option value=2>2: Spirit, o corcel indomável</option>
@@ -30,10 +30,16 @@
 
 
 		<br>
-		<div classe="input-group col-md-4">
+		<div classe="input-group col-md-4" style="margin-left: 10px;">
 			<input type=button id="setWinner" value='SetWinner'> 
-			<input type=button id="startButton" onclick= timer() value='Start'> 
-			<input type=button id="resetButton" onClick= reset1() value='Reset'>
+			<input type=button id="withDraw"  value='Withdraw' >
+
+
+			<div id="startReset"> 
+				<input type=button id="startButton" onclick= timer() value='Start' style="margin-right: 10px;"> 
+				<input type=button id="resetButton" onClick= reset1() value='Reset'>
+			</div>
+		
 		</div>
 
 		<h1> Começando em 3,2,1 ......</h1>

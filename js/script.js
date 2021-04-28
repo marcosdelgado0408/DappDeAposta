@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x0ae08564D22cA099210d9783B8Ee128ee575a88a"; // Weverson Owner
-//var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
+// var contractAddress = "0x0ae08564D22cA099210d9783B8Ee128ee575a88a"; // Weverson Owner
+var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
 
 
 
@@ -89,6 +89,10 @@ function setWinner(){
 
 }
 
+function withDraw(){ // function withDraw() external onlyOwner
+  return DApp.contracts.Contrato.methods.withDraw().send({from: DApp.account}).then(atualizaInterface);;
+}
+
 
 
 // *** ATUALIZAÇÃO DO HTML *** //
@@ -96,7 +100,7 @@ function setWinner(){
 function inicializaInterface() {
     document.getElementById("apostar").onclick = betOnHorse;
     document.getElementById("setWinner").onclick = setWinner;
-
+    document.getElementById("withDraw").onclick = withDraw;
 
     atualizaInterface();
 }
@@ -113,16 +117,19 @@ function atualizaInterface() {
   document.getElementById("startButton").style.display = "none";
   document.getElementById("resetButton").style.display = "none";
   document.getElementById("setWinner").style.display = "none";
+  document.getElementById("withDraw").style.display = "none";
   ehdono().then((result) => {
   
     if(result){
       document.getElementById("startButton").style.display = "block";
       document.getElementById("resetButton").style.display = "block";
       document.getElementById("setWinner").style.display = "block";
-
+      document.getElementById("withDraw").style.display = "block";
     }
   
   });
 
 
 }
+
+

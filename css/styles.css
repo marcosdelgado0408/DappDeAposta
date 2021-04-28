@@ -9,7 +9,7 @@
 }*/
 #pista{
     border: 5px solid;
-    height: 600;
+    height: 610;
 }
 
 .corredor{
@@ -35,9 +35,15 @@
     
 }
 
+#startReset{
+    margin-top: 20px;
+    display: flex;
+}
+
+
+
 ol li{
     height: 120px;
     color: white;
     border: 1px solid;
 }
-
