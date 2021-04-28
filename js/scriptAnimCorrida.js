@@ -57,7 +57,7 @@ function disp(){
 	move('4');
 	move('5');
 
-	console.log(winner)
+	// console.log(winner)
 
 }
 
@@ -66,6 +66,13 @@ function timer(){
 	my_time = setTimeout('timer()',15);
 
 }
+
+function getters(){
+	console.log(document.getElementById("NumCavalo").value);
+	console.log(document.getElementById("amount").value)
+}
+
+
 
 
 // window.onload = timer();

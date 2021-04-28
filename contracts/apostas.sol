@@ -27,10 +27,15 @@ contract Bet{
 		_;
 	}
     
+    event mostrarAposta(uint amount, uint horseNumber);
+    
+    
 
     function betOnHorse(uint horseNumber) public payable{
         
         require(horseNumber < horseQuantity); // nao e possivel apostar em cavalos que nao estajam disponiveis
+        
+        require(msg.value > 0); // nao e possivel apostar sem dinheiro
         
         BettedHorse memory cavaloApostado;
         
@@ -39,9 +44,9 @@ contract Bet{
         
         bets[msg.sender] = cavaloApostado;
         
-        
-        // horseNumbers[horseNumber].push(msg.sender);
         addresses.push(msg.sender);
+        
+        emit mostrarAposta(msg.value, horseNumber);
         
     }
     
@@ -54,6 +59,8 @@ contract Bet{
     function viewWinner() public view returns(uint){
         return winner;
     }
+    
+    
     
     function withDraw() external onlyOwner{
         address addr;

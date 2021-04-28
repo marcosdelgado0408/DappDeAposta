@@ -7,24 +7,35 @@
 
 
 	
-	<body onload="timer()" style="background-color:grey;">
+	<body style="background-color:grey;">
 		
-		<h1 class="rey"> Comencando em 3,2,1 ......</h6>
+		<h1 class="rey"> Apostas de cavalo</h1>
+		<br><br>
+		<h3> Faça sua aposta aqui</h3>
 			
 			
-		<img src=imagens/grama_hd.jpg id='grama_hd'>
-		<img src=imagens/LinhaChegadaVertical.png id='chegada' >
 
-		<img src=imagens/astronauta.gif id='i1' class="corredor">			
-		<img src=imagens/horse.gif id='i2' class="corredor" >
-		<img src=imagens/robothorse.gif id='i3' class="corredor" >
-		<img src=imagens/capitaotpose.png id='i4' class="corredor" >
-		<img src=imagens/capitaotpose.png id='i5' class="corredor" >
-	
+		<label>Numero do cavalo:</label>
+		<input  type="text" id="NumCavalo" size="4" placeholder="Numero"/>
 			
-		<button type="button" id="btnComprar">
-                  Comprar rifas!
-        </button>			
+
+		<br><br>
+		<label>Quantia a ser apostada:</label>
+		<input  type="text" id="amount" size="9" placeholder="Amount(wei)"/>
+		<br><br>
+		<button type="button" id="apostar" onClick = "getters()">
+                  Enviar
+        </button>	
+
+
+		
+		<br><br>
+		<small class="text" id="endereco">-</small>
+		
+		<span id="campeao-atual" class="text"></span>
+
+
+
 
 
 		<!-- <br><br><br><br> -->
@@ -33,12 +44,11 @@
 		<!-- <div id='msg'></div> --> 
 
 
-		<script src = "js/scrips.js"></script>
+	<!--	<script src = "js/scrips.js"></script> -->
 		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     	<script src="js/abi.js"></script>
     	<script src="js/script.js"></script>
-
-
+	
 	</body>
 
 </html>

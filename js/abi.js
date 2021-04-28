@@ -25,6 +25,25 @@ var abi = [
 		"type": "constructor"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "horseNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "mostrarAposta",
+		"type": "event"
+	},
+	{
 		"inputs": [],
 		"name": "withDraw",
 		"outputs": [],

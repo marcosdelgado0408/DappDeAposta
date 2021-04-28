@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0xDefA8451F1AE30049a92236b2AaEff263051b122";
+var contractAddress = "0xc64d670037e280AC7eC8edA531f058Cc5A29f50A";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -68,10 +68,24 @@ function verCampeao() {
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
 
 
+function betOnHorse() { //function betOnHorse(uint horseNumber) public payable
+  let horseNumber = document.getElementById("NumCavalo").value;
+  let amount = document.getElementById("amount").value; // em whei por enquento
+  return DApp.contracts.Contrato.methods.betOnHorse(horseNumber).send({ from: DApp.account, value: amount }).then(atualizaInterface);;
+}
+
+
+
+
 
 // *** ATUALIZAÇÃO DO HTML *** //
 
 function inicializaInterface() {
+    document.getElementById("apostar").onclick = betOnHorse;
+
+
+
+
     atualizaInterface();
 }
 
