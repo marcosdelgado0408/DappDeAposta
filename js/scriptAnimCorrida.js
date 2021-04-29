@@ -1,18 +1,19 @@
 var over = false;
-var chegada = 1750;
+var chegada = 1700;
+var winnerid;
 
 
 function reset1(){
 
-	desanimar();
-	clearTimeout(my_time);
-	over = false;
-	document.getElementById('i1').style.left = "30px";
-	document.getElementById('i2').style.left = "30px";
-	document.getElementById('i3').style.left = "30px";
-	document.getElementById('i4').style.left = "30px";
-	document.getElementById('i5').style.left = "30px";
-
+	location.reload();
+	// desanimar();
+	// clearTimeout(my_time);
+	// over = false;
+	// document.getElementById('i1').style.left = "30px";
+	// document.getElementById('i2').style.left = "30px";
+	// document.getElementById('i3').style.left = "30px";
+	// document.getElementById('i4').style.left = "30px";
+	// document.getElementById('i5').style.left = "30px";
 }
 
 
@@ -42,9 +43,8 @@ function moveFaster(id){
 	else{
 		over = true;
 		desanimar();
+		winnerid = id;
 	}
-
-
 }
 
 
@@ -106,7 +106,6 @@ function moveFaster5(){
 
 
 function timer(){
-	
 
 	verCampeao().then((result) => {
 		switch (result) {
@@ -144,4 +143,44 @@ function timer(){
 }
 
 
+function showWinner(){
+	setTimeout(function() {alert("Cavalo " + winnerid + " ganhou!")}, 13000);
+	// document.getElementById("startButton").onclick = null;
+}
 
+
+
+
+function starting(){
+	
+	var ml4 = {};
+	ml4.opacityIn = [0,1];
+	ml4.scaleIn = [0.1, 1];
+	ml4.scaleOut = 3;
+	ml4.durationIn = 800;
+	ml4.durationOut = 600;
+	ml4.delay = 500;
+
+	anime.timeline({loop: false})
+	.add({
+		targets: '.ml4 .letters-1',
+		opacity: ml4.opacityIn,
+		scale: ml4.scaleIn,
+		duration: ml4.durationIn
+	}).add({
+		targets: '.ml4 .letters-1',
+		opacity: 0,
+		scale: ml4.scaleOut,
+		duration: ml4.durationOut,
+		easing: "easeInExpo",
+		delay: ml4.delay
+	}).add({
+		targets: '.ml4',
+		opacity: 0,
+		duration: 500,
+		delay: 500
+	});
+
+
+
+}

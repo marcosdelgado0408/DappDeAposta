@@ -24,13 +24,16 @@
 			<input  type="text" id="amount" size="9" placeholder="Valor(wei)" required class="form-control"/>
 			<button type="button" id="apostar" class="btn btn-danger" >Apostar</button>
 		</div>
+		
 		<div class="col-md-4">
 			<small class="text" id="endereco">-</small>
 		</div>
+		
 		<div class="col-md-4">
 			Ganho estimado:
 			<span id="ganhoEstimado" class="text" style="color: springgreen;"></span>
 		</div>
+		
 		<div class="col-md-4">
 			Último campeão: <span id="campeao-atual" class="text"></span>
 		</div>
@@ -46,13 +49,17 @@
 
 
 			<div class="botoesInline"> 
-				<input type=button id="startButton" onclick="animar(); timer();" value='Start' class="btn btn-danger"> 
+				<input type=button id="startButton" onclick="animar(); timer(); starting(); showWinner();" value='Start' class="btn btn-danger"> 
 				<input type=button id="resetButton" onClick= reset1() value='Reset' class="btn btn-danger">
 			</div>
 		
 		</div>
 
-		<h1> Começando em 3,2,1 ......</h1>
+		<h1 class="ml4">
+			<span class="letters letters-1">Go!!!</span>
+	
+		  </h1>
+
 		<div class="mx-auto" id="pista">
 			<img src=imagens/LinhaChegadaVertical.png id='chegada' >
 			<ol>
@@ -104,7 +111,7 @@
 		<input type=button onClick=reset1() value='Reset'> -->
 		<!-- <div id='msg'></div> --> 
 
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 		<script src = "js/scriptAnimCorrida.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     	<script src="js/abi.js"></script>
