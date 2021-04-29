@@ -1,24 +1,4 @@
-var abi = [
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "horseNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "betOnHorse",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "setWinner",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
+var abi =[
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -50,10 +30,29 @@ var abi = [
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "withDraw",
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "horseNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "mostrarVencedor",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "horseNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "betOnHorse",
 		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -116,6 +115,13 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "setWinner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "viewPrize",
 		"outputs": [
 			{
@@ -138,6 +144,13 @@ var abi = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withDraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

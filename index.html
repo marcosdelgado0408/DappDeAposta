@@ -10,15 +10,15 @@
 	
 	<body class="p-3 mb-2 bg-secondary text-white">
 		
-		<h1> Apostas de cavalo</h1>
+		<h1> Escolha um cavalo e aposte!</h1>
 		<br>
 		<div class="input-group col-md-4">
 			<select id="NumCavalo" class="form-control">
 					<option value="" disabled selected>Escolha um cavalo</option>
 					<option value=1>1: Neil Armstrong</option>
 					<option value=2>2: Spirit, o corcel indomável</option>
-					<option value=3>3: Rocket, o cavalo máquina</option>
-					<option value=4>4: Capitão, o pinguin</option>
+					<option value=3>3: Rocket, a máquina de correr</option>
+					<option value=4>4: Capitão, o líder dos pinguins</option>
 					<option value=5>5: Sunshine, o unicórnio</option>
 			</select>
 			<input  type="text" id="amount" size="9" placeholder="Valor(wei)" required class="form-control"/>
@@ -30,25 +30,32 @@
 		</div>
 		
 		<div class="col-md-4">
-			Ganho estimado:
-			<span id="ganhoEstimado" class="text" style="color: springgreen;"></span>
+			<table>
+				<tr>
+					<td>Cavalo escolhido: </td>
+					<td><span id="cavaloApostado" class="text" style="color: springgreen;"></span></td>
+				</tr>
+				<tr>
+					<td>Valor da aposta: </td>
+					<td><span id="valorApostado" class="text" style="color: springgreen;"></span></td>
+				</tr>
+				<tr>
+					<td>Ganho estimado:</td>
+					<td><span id="ganhoEstimado" class="text" style="color: springgreen;"></span></td>
+				</tr>
+			</table>
 		</div>
-		
-		<div class="col-md-4">
-			Último campeão: <span id="campeao-atual" class="text"></span>
-		</div>
-		
-
-
 		<br>
 		<div classe="input-group col-md-4" style="margin-left: 10px;">
 			<div class="botoesInline">
 				<input type=button id="setWinner" value='SetWinner' class="btn btn-danger"> 
 				<input type=button id="withDraw"  value='Withdraw' class="btn btn-danger">
 			</div>
-
-
+			<div class="col-md-12 text-center">
+				<h1 id="apostasEncerradas" style="color:darkred;">Apostas Encerradas! Veja o resultado apertando em start</h1>
+			</div>
 			<div class="botoesInline"> 
+				
 				<input type=button id="startButton" onclick="animar(); timer(); starting(); showWinner();" value='Start' class="btn btn-danger"> 
 				<input type=button id="resetButton" onClick= reset1() value='Reset' class="btn btn-danger">
 			</div>

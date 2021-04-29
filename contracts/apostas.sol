@@ -27,6 +27,7 @@ contract Bet{
 	}
     
     event mostrarAposta(address addr, uint amount, uint horseNumber);
+    event mostrarVencedor(uint horseNumber);
     
     function checkPlayerExists(address player) public view returns(bool){
         for(uint i=0; i < players.length; i++){
@@ -41,14 +42,12 @@ contract Bet{
         
         require(!checkPlayerExists(msg.sender)); // so é possivel 1 aposta por endereço
         
-        require(horseNumber < 6); // nao e possivel apostar em cavalos que nao estajam disponiveis
+        require(horseNumber < 6 && horseNumber != 0); // nao e possivel apostar em cavalos que nao estajam disponiveis
         
         require(msg.value >= minimumBet); // nao e possivel apostar sem dinheiro
         
         bets[msg.sender].amount = msg.value;
         bets[msg.sender].horseNumber = horseNumber;
-        
-        
         
         players.push(msg.sender);
         emit mostrarAposta(msg.sender, msg.value, horseNumber);
@@ -56,7 +55,7 @@ contract Bet{
     
     
     function setWinner() public onlyOwner{
-        winner = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % 6;
+        winner = (uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % 5)+1;
     }
     
     
@@ -65,6 +64,8 @@ contract Bet{
     }
     
     function withDraw() external onlyOwner{
+        require(winner != 0);
+        emit mostrarVencedor(winner);
         address addr;
         
         for(uint i=0;i<players.length;i++){
@@ -76,7 +77,6 @@ contract Bet{
             }
             delete bets[addr];
         }
-        
         winner = 0;
         delete players;
     }
@@ -109,7 +109,11 @@ contract Bet{
     }
     
     function viewPrize() public view returns(uint){
-        require(checkPlayerExists(msg.sender));
-        return prize(msg.sender);
+        if(!checkPlayerExists(msg.sender)){
+            return 0;
+        }
+        else{
+            return prize(msg.sender);
+        }
     }
 }

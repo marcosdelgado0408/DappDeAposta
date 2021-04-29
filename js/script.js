@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-// var contractAddress = "0x01d09cff5BDc70065cd9e69C15DE573397227Aaa"; // Weverson Owner
-var contractAddress = "0x12e8a42D7aA3a15D452977952D22f56c587764b8"; // Goro Owner
+var contractAddress = "0x7EcEfB3C01acC281337C9683aCfc4dA7Fc60e5ff"; // Weverson Owner
+//var contractAddress = "0x12e8a42D7aA3a15D452977952D22f56c587764b8"; // Goro Owner
 
 
 
@@ -78,6 +78,14 @@ function verGanhos(){
   return DApp.contracts.Contrato.methods.viewPrize().call({ from: DApp.account });
 }
 
+function verValorApostado(){
+  return DApp.contracts.Contrato.methods.seeMyBetAmount().call({ from: DApp.account });
+}
+
+function verCavaloApostado(){
+  return DApp.contracts.Contrato.methods.seeMyBetHorse().call({ from: DApp.account });
+}
+
 
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
 
@@ -125,7 +133,15 @@ function atualizaInterface() {
     document.getElementById("ganhoEstimado").innerHTML = result;
   });
 
+  verCavaloApostado().then((result) => {
+    document.getElementById("cavaloApostado").innerHTML = result;
+  });
 
+  verValorApostado().then((result) => {
+    document.getElementById("valorApostado").innerHTML = result;
+  });
+
+  document.getElementById("apostasEncerradas").style.display = "none";
   document.getElementById("startButton").style.display = "none";
   document.getElementById("resetButton").style.display = "none";
   document.getElementById("setWinner").style.display = "none";
@@ -133,12 +149,17 @@ function atualizaInterface() {
   ehdono().then((result) => {
   
     if(result){
-      document.getElementById("startButton").style.display = "block";
-      document.getElementById("resetButton").style.display = "block";
       document.getElementById("setWinner").style.display = "block";
       document.getElementById("withDraw").style.display = "block";
     }
   
+  });
+  verCampeao().then((result) => {
+    if(result != 0){
+      document.getElementById("apostasEncerradas").style.display = "block";
+      document.getElementById("startButton").style.display = "block";
+      document.getElementById("resetButton").style.display = "block";
+    }
   });
 
 }
