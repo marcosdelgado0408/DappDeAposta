@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x113FD732F4Fc763454a1a63A872c504EAE2941DB"; // Weverson Owner
+var contractAddress = "0x3c1f7Ec820380De97913aeDCc22C394f993076cC"; // Weverson Owner
 //var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
 
 

@@ -12,14 +12,16 @@ contract Bet{
         uint horseNumber; //numero do cavalo apostado
     }
     uint winner; // numero do cavalo vencedor
-    uint horseQuantity; // quantidade de cavalos
+    //uint horseQuantity; // quantidade de cavalos
+    
+    mapping(uint => uint) totalBets;
     
     mapping(address => BettedHorse) bets;
     address[] players;
 
     constructor(){
         owner = msg.sender;
-        horseQuantity = 5;
+        emptyTotalBets();
     }
     
     modifier onlyOwner {
@@ -27,7 +29,7 @@ contract Bet{
 		_;
 	}
     
-    event mostrarAposta(uint amount, uint horseNumber);
+    event mostrarAposta(address addr, uint amount, uint horseNumber);
     
     function checkPlayerExists(address player) public view returns(bool){
         for(uint i=0; i < players.length; i++){
@@ -37,26 +39,32 @@ contract Bet{
         }
         return false;
     }
+    function emptyTotalBets() internal{
+        for(uint i=1; i<6; i++){
+            totalBets[i] = 0;
+        }
+    }
 
     function betOnHorse(uint horseNumber) public payable{
         
         require(!checkPlayerExists(msg.sender)); // so é possivel 1 aposta por endereço
         
-        require(horseNumber < horseQuantity); // nao e possivel apostar em cavalos que nao estajam disponiveis
+        require(horseNumber < 6); // nao e possivel apostar em cavalos que nao estajam disponiveis
         
         require(msg.value > 0); // nao e possivel apostar sem dinheiro
         
         bets[msg.sender].amount = msg.value;
         bets[msg.sender].horseNumber = horseNumber;
         
-        players.push(msg.sender);
+        totalBets[horseNumber] += msg.value;
         
-        emit mostrarAposta(msg.value, horseNumber);
+        players.push(msg.sender);
+        emit mostrarAposta(msg.sender, msg.value, horseNumber);
     }
     
     
     function setWinner() public onlyOwner{
-        winner = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % horseQuantity + 1;
+        winner = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % 6;
     }
     
     
@@ -72,10 +80,11 @@ contract Bet{
             
             if(bets[addr].horseNumber == winner){
                 address payable payableAddr = payable(addr);
-                payableAddr.transfer(bets[addr].amount);
+                payableAddr.transfer(reward(payableAddr));
             }
             delete bets[addr];
         }
+        emptyTotalBets();
         winner = 0;
         delete players;
     }
@@ -90,4 +99,23 @@ contract Bet{
     function seeMyBetHorse() public view returns(uint){
         return bets[msg.sender].horseNumber;
     }
+    
+    function reward(address player) public view returns(uint){
+        uint myHorse = bets[player].horseNumber;
+        uint rwd = bets[player].amount / totalBets[myHorse];
+        uint totalBetOtherHorses = 0;
+        for(uint i = 1; i<6; i++){
+            if(i != myHorse){
+                totalBetOtherHorses += totalBets[i];
+            }
+        }
+        rwd *= totalBetOtherHorses;
+        rwd += bets[player].amount;
+        return rwd;
+    }
+    
+    function viewReward() public view returns(uint){
+        return reward(msg.sender);
+    }
+    
 }
