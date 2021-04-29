@@ -42,6 +42,11 @@
     display: flex;
 }
 
+.table{
+    margin-top: 30px;
+    margin-right: 600px;
+    margin-left: 500px;
+}
 
 
 ol li{

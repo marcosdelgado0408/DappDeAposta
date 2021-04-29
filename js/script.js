@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
 var contractAddress = "0x4a1C300CAeE03e61C2700A91BdE9D155255d8DD8"; // Weverson Owner
-//var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
+// var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
 
 
 
@@ -107,7 +107,11 @@ function inicializaInterface() {
     document.getElementById("withDraw").onclick = withDraw;
 
     atualizaInterface();
-}
+
+    DApp.contracts.Contrato.getPastEvents("mostrarAposta", { fromBlock: 0, toBlock: "latest" }).then((result) => registraEventos(result));
+    DApp.contracts.Contrato.events.mostrarAposta((error, event) => registraEventos([event]));
+
+  }
 
 function atualizaInterface() {
  
@@ -136,8 +140,30 @@ function atualizaInterface() {
     }
   
   });
+}
 
+function registraEventos(eventos){
+  let table = document.getElementById("events");
+
+  eventos.forEach(evento => {
+    
+    let tr = document.createElement("tr");
+   
+    let td1 = document.createElement("td");
+    td1.innerHTML = "<a href='https://ropsten.etherscan.io/address/"+ evento["returnValues"]["addr"] +"' style= 'color: SpringGreen'; >" + evento["returnValues"]["addr"] + "</a>";
+    let td2 = document.createElement("td");
+    td2.innerHTML = evento["returnValues"]["amount"];
+    let td3 = document.createElement("td");  
+    td3.innerHTML = evento["returnValues"]["horseNumber"];
+    
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    table.appendChild(tr);
+
+  });
 
 }
+
 
 

@@ -8,7 +8,7 @@
 
 
 	
-	<body class="bg-secondary">
+	<body class="p-3 mb-2 bg-secondary text-white">
 		
 		<h1 class="rey"> Apostas de cavalo</h1>
 		<br>
@@ -20,7 +20,7 @@
 					<option value=2>2: Spirit, o corcel indomável</option>
 					<option value=3>3: Rocket, o cavalo máquina</option>
 					<option value=4>4: Capitão, o pinguin</option>
-					<option value=5>5: Sunshine, o uinicórnio</option>
+					<option value=5>5: Sunshine, o unicórnio</option>
 			</select>
 			<input  type="text" id="amount" size="9" placeholder="Valor(wei)" required/>
 			<button type="button" id="apostar" >Apostar</button>
@@ -65,6 +65,29 @@
 				</li>
 			</ol>
 		</div>
+
+
+
+		<div class="row">
+        
+		<table class="table text-white">
+          <thead>
+            <tr>
+              <th style="text-align: center;" scope="col" colspan="3">APOSTAS REALIZADAS</th>
+            </tr>
+            
+			<tr>
+                <th class="small text-center" scope="col">Endereço</th>
+                <th class="small text-center" scope="col">Quantia apostada</th>
+                <th class="small text-center" scope="col">Num. cavalo</th>
+            </tr>
+         
+		  </thead>
+          <tbody id="events" class="small text-center">
+          </tbody>
+        </table>
+      
+	  </div>
 
 
 
