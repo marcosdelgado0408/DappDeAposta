@@ -39,7 +39,7 @@ contract Bet{
     }
 
     function betOnHorse(uint horseNumber) public payable{
-        require(winner != 0);
+        require(winner == 0);
         require(!checkPlayerExists(msg.sender)); // so é possivel 1 aposta por endereço
         
         require(horseNumber < 6 && horseNumber != 0); // nao e possivel apostar em cavalos que nao estajam disponiveis
