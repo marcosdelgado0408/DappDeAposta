@@ -116,7 +116,7 @@ var abi = [
 	},
 	{
 		"inputs": [],
-		"name": "viewReward",
+		"name": "viewPrize",
 		"outputs": [
 			{
 				"internalType": "uint256",
