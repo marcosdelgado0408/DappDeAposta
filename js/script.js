@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0xC187da6FcDD4A37443bFA493927fC9FaC2380470"; // Weverson Owner
-//var contractAddress = "0xDBbE46dBfAA4Fe4965df0780C98E688d79ECCcb4"; // Goro Owner
+var contractAddress = "0x813D75228541D0c27Db4071CC56FED029bCFA9b7"; // Weverson Owner
+//var contractAddress = "0x06c6EdD627fbDE264093A001ebE6F357B5019A91"; // Goro Owner
 //var contractAddress = "0x27FCe6302bf9916A6880f3cA3a8636d3050DaC0f"; // TESTE CRONOMETRO
 
 

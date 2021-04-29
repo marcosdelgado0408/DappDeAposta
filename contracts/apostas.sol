@@ -65,16 +65,15 @@ contract Bet{
     
     function withDraw() external onlyOwner{
         require(winner != 0);
-        address addr;
-        
         for(uint i=0;i<players.length;i++){
-            addr = players[i];
             
-            if(bets[addr].horseNumber == winner){
-                address payable payableAddr = payable(addr);
-                payableAddr.transfer(prize(addr));
+            if(bets[players[i]].horseNumber == winner){
+                address payable payableAddr = payable(players[i]);
+                payableAddr.transfer(prize(players[i]));
             }
-            delete bets[addr];
+        }
+        for(uint i=0;i<players.length; i++){
+            delete bets[players[i]];
         }
         emit mostrarVencedor(winner);
         winner = 0;
