@@ -84,7 +84,7 @@ function verGanhos(){
 
 function betOnHorse() { //function betOnHorse(uint horseNumber) public payable
   let horseNumber = document.getElementById("NumCavalo").value;
-  let amount = document.getElementById("amount").value; // em whei por enquento
+  let amount = document.getElementById("amount").value; // em wei por enquento
   return DApp.contracts.Contrato.methods.betOnHorse(horseNumber).send({ from: DApp.account, value: amount }).then(atualizaInterface);;
 }
 

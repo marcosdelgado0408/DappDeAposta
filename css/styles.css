@@ -37,7 +37,7 @@
     
 }
 
-#startReset{
+.botoesInline{
     margin-top: 20px;
     display: flex;
 }
@@ -53,4 +53,8 @@ ol li{
     height: 120px;
     color: white;
     border: 1px solid;
+}
+
+input{
+    margin-left: 3px;
 }
