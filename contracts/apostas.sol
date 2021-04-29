@@ -14,7 +14,7 @@ contract Bet{
     uint winner; // numero do cavalo vencedor
     //uint horseQuantity; // quantidade de cavalos
     
-    mapping(uint => uint) totalBets;
+    uint[6] totalBets;
     
     mapping(address => BettedHorse) bets;
     address[] players;
@@ -40,7 +40,7 @@ contract Bet{
         return false;
     }
     function emptyTotalBets() internal{
-        for(uint i=1; i<6; i++){
+        for(uint i=0; i<6; i++){
             totalBets[i] = 0;
         }
     }
@@ -100,7 +100,7 @@ contract Bet{
         return bets[msg.sender].horseNumber;
     }
     
-    function reward(address player) public view returns(uint){
+    function reward(address player) internal view returns(uint){
         uint myHorse = bets[player].horseNumber;
         uint rwd = bets[player].amount / totalBets[myHorse];
         uint totalBetOtherHorses = 0;
@@ -115,6 +115,7 @@ contract Bet{
     }
     
     function viewReward() public view returns(uint){
+        require(checkPlayerExists(msg.sender));
         return reward(msg.sender);
     }
     
