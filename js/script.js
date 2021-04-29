@@ -1,6 +1,6 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-// var contractAddress = "0x0ae08564D22cA099210d9783B8Ee128ee575a88a"; // Weverson Owner
-var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
+var contractAddress = "0x113FD732F4Fc763454a1a63A872c504EAE2941DB"; // Weverson Owner
+//var contractAddress = "0x204a66e2eD588dF43F9cD58aC2d937F29104CFF9"; // Goro Owner
 
 
 
@@ -74,6 +74,10 @@ function ehdono(){
   return DApp.contracts.Contrato.methods.isOwner().call({ from: DApp.account });
 }
 
+function verGanhos(){
+  return DApp.contracts.Contrato.methods.viewReward().call({ from: DApp.account });
+}
+
 
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
 
@@ -112,6 +116,10 @@ function atualizaInterface() {
   });
 
   document.getElementById("endereco").innerHTML = DApp.account;
+
+  verGanhos().then((result) => {
+    document.getElementById("ganhoEstimado").innerHTML = result;
+  });
 
 
   document.getElementById("startButton").style.display = "none";

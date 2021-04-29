@@ -14,13 +14,6 @@ var abi = [
 	},
 	{
 		"inputs": [],
-		"name": "setWinner",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -42,6 +35,13 @@ var abi = [
 		],
 		"name": "mostrarAposta",
 		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "setWinner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -83,6 +83,25 @@ var abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "player",
+				"type": "address"
+			}
+		],
+		"name": "reward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "seeMyBetAmount",
 		"outputs": [
@@ -98,6 +117,19 @@ var abi = [
 	{
 		"inputs": [],
 		"name": "seeMyBetHorse",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "viewReward",
 		"outputs": [
 			{
 				"internalType": "uint256",
