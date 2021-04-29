@@ -116,4 +116,8 @@ contract Bet{
             return prize(msg.sender);
         }
     }
+    
+    function viewMinimumBet() public view returns(uint){
+        return minimumBet;
+    }
 }
