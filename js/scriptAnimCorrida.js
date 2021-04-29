@@ -145,7 +145,7 @@ function timer(){
 
 function showWinner(){
 	setTimeout(function() {alert("Cavalo " + winnerid + " ganhou!")}, 13000);
-	// document.getElementById("startButton").onclick = null;
+	document.getElementById("startButton").onclick = null;
 }
 
 
